@@ -6,16 +6,16 @@
 <!-- Two-way data-binding, nb. FormsModule import in app.module.ts req'd  -->
 <input type="text" class="form-control" [(ngModel)]="serverName">
 
-<!-- Interpolation -->
-<p>{{ serverName }}</p>
 
 <!-- Property binding [disabled], and event binding (click) -->
 <button [class]="addServerCss"
         [disabled]="!allowNewServer"
         (click)="onCreateServer()">Add Server</button>
 
-<!-- Interpolation -->
-<p>{{ serverCreationStatus }}</p>
+<p *ngIf="serverCreated; else noServer">Server was created, server name: {{ serverName }}</p>
+<ng-template #noServer>
+  <p>Waiting server creation...</p>
+</ng-template>
 
 <br>
 
