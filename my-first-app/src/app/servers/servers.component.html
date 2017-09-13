@@ -12,7 +12,10 @@
         [disabled]="!allowNewServer"
         (click)="onCreateServer()">Add Server</button>
 
-<p *ngIf="serverCreated; else noServer">Server was created, server name: {{ serverName }}</p>
+<!-- ng if/else example -->
+<p *ngIf="serverCreated; else noServer">
+  Server was created, server name: {{ serverName }}
+</p>
 <ng-template #noServer>
   <p>Waiting server creation...</p>
 </ng-template>
