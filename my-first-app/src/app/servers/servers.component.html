@@ -1,0 +1,24 @@
+<label>Server Name</label>
+
+<!-- One-way event binding -->
+<input type="text" class="form-control" (input)="onServerNameUpdate($event)">
+
+<!-- Two-way data-binding, nb. FormsModule import in app.module.ts req'd  -->
+<input type="text" class="form-control" [(ngModel)]="serverName">
+
+<!-- Interpolation -->
+<p>{{ serverName }}</p>
+
+<!-- Property binding [disabled], and event binding (click) -->
+<button [class]="addServerCss"
+        [disabled]="!allowNewServer"
+        (click)="onCreateServer()">Add Server</button>
+
+<!-- Interpolation -->
+<p>{{ serverCreationStatus }}</p>
+
+<br>
+
+<app-server></app-server>
+<app-server></app-server>
+<app-server></app-server>
